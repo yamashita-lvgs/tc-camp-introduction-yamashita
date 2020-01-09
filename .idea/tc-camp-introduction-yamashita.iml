@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita">
+      <sourceFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/dnoegel/php-xdg-base-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/dragonmantank/cron-expression" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/facade/flare-client-php" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/facade/ignition" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/facade/ignition-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/fideloper/proxy" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/jakub-onderka/php-console-color" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/jakub-onderka/php-console-highlighter" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/league/commonmark-ext-table" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/mockery/mockery" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/opis/closure" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpunit/php-token-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/scrivo/highlight.php" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/resource-operations" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/polyfill-iconv" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/../tc-camp-introduction-yamashita/vendor/webmozart/assert" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
