@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="ja">
 <head>
     <title>Index</title>
@@ -6,19 +7,19 @@
 <body>
 <h1>User/Index</h1>
 <h1>ユーザー一覧</h1>
-    <table>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>mail</th>
+    </tr>
+    @foreach($users as $user)
         <tr>
-	        <th>id</th>
-	        <th>name</th>
-	        <th>mail</th>
+            <td>{{$user->id}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
         </tr>
-        <tr>
-            @foreach($users as $user)
-            <td>{{$user->id}}}}</td>
-            <td>{{$user->name}}}}</td>
-            <td>{{$user->email}}}}</td>
-            <td>hanako@flower.jp</td>
-	    </tr>
-    </table>
+    @endforeach
+</table>
 </body>
 </html>
