@@ -11,7 +11,7 @@ class User extends Model
 
     /* 新規登録バリデーションルール*/
     public static $rules =array(
-        'user.name'  => ['required|between:2,20'],
-        'user.email' => ['required|between:5,50'],
+        'name'  => 'required|between:2,20',
+        'email' => 'required|between:5,50',
     );
 }
