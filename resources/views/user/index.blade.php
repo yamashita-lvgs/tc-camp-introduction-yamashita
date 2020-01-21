@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="ja">
 <head>
     <title>Index</title>
@@ -24,5 +23,3 @@
         </tr>
     @endforeach
 </table>
-</body>
-</html>
