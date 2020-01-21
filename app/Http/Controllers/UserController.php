@@ -27,4 +27,20 @@ class UserController extends Controller
 	    $user->fill($form)->save();
 	    return redirect('/users');
     }
+
+    public function edit(Request $request)
+    {
+        $user =User::find($request->id);
+        return view('user.edit', ['form'=> $user]);
+    }
+
+    public function update(Request $request)
+    {
+        $this->validate($request, User::$rules);
+        $user = User::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $user->fill($form)->save();
+        return redirect('/users');
+    }
 }
