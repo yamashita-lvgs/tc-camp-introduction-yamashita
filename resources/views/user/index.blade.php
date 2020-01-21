@@ -6,22 +6,19 @@
 <body>
 <h1>User/Index</h1>
 <h1>ユーザー一覧</h1>
-    <table>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>mail</th>
+    </tr>
+    @foreach($users as $user)
         <tr>
-	    <th>id</th>
-	    <th>name</th>
-	    <th>mail</th>
+            <td>{{$user->id}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
         </tr>
-        <tr>  
-	    <td>1</td>
-	    <td>hanako</td>
-            <td>hanako@flower.jp</td>
-	</tr>
-        <tr>
-            <td>2</td>
-            <td>taro</td>
-            <td>taro@tarotaro.jp</td>
-        </tr>
-    </table>
+    @endforeach
+</table>
 </body>
 </html>
