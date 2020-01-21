@@ -8,20 +8,17 @@
 <h1>ユーザー一覧</h1>
     <table>
         <tr>
-	    <th>id</th>
-	    <th>name</th>
-	    <th>mail</th>
+	        <th>id</th>
+	        <th>name</th>
+	        <th>mail</th>
         </tr>
-        <tr>  
-	    <td>1</td>
-	    <td>hanako</td>
-            <td>hanako@flower.jp</td>
-	</tr>
         <tr>
-            <td>2</td>
-            <td>taro</td>
-            <td>taro@tarotaro.jp</td>
-        </tr>
+            @foreach($users as $user)
+            <td>{{$user->id}}}}</td>
+            <td>{{$user->name}}}}</td>
+            <td>{{$user->email}}}}</td>
+            <td>hanako@flower.jp</td>
+	    </tr>
     </table>
 </body>
 </html>
