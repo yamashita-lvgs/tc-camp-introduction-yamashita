@@ -6,6 +6,9 @@
 </head>
 <body>
 <h1>User/Index</h1>
+
+<a href="users/add">新規ユーザー登録</a>
+
 <h1>ユーザー一覧</h1>
 <table>
     <tr>

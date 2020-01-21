@@ -12,4 +12,17 @@ class UserController extends Controller
         $users = User::all();
         return view('user.index', ['users' => $users]);
     }
+    public function add(Request $request)
+    {
+        return view('user.add');
+    }
+
+    public function create(Request $request)
+    {
+        $user = new User;
+        $form = $request->all();
+        unset($form['_token']);
+        $user->fill($form)->save();
+        return redirect('user');
+    }
 }
