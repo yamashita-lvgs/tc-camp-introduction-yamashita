@@ -11,10 +11,6 @@
 
 <h1>ユーザー一覧</h1>
 
-@if (Session::has('message'))
-    <p>{{ session('message') }}</p>
-@endif
-
 <table>
     <tr>
         <th>id</th>
