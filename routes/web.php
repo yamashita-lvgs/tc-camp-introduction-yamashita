@@ -24,3 +24,5 @@ Route::get('users/edit/{id}', 'UserController@edit');
 Route::post('users/edit', 'UserController@update');
 
 Route::get('users/delete/{id}', 'UserController@delete');
+
+Route::get('users/physical_delete/{id}', 'UserController@physical_delete');

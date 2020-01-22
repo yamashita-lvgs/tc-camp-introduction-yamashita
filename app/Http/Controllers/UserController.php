@@ -47,7 +47,13 @@ class UserController extends Controller
     public function delete(Request $request)
     {
         $user = User::find($request->id);
-	$user->delete();
-        return redirect()->to("/users");
+        $user->delete();
+        return redirect()->to("/users")->with('message', 'ユーザー論理削除しました。');
+    }
+
+    public function physical_delete(Request $request)
+    {
+        User::find($request->id)->delete();
+        return redirect()->to('/users')->with('message', 'ユーザー物理削除しました。');
     }
 }
