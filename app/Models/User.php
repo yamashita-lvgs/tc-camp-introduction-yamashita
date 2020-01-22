@@ -14,4 +14,8 @@ class User extends Model
         'name'  => 'required|between:2,20',
         'email' => 'required|between:5,50',
     );
+
+    /*論理削除*/
+
+    use SoftDeletes;
 }

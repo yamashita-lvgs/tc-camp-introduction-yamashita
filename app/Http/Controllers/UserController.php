@@ -23,15 +23,15 @@ class UserController extends Controller
         $this->validate($request, User::$rules);
         $user = new User;
         $form = $request->all();
-	unset($form['_token']);
-	$user->fill($form)->save();
-	return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー新規登録しました。');
+        unset($form['_token']);
+        $user->fill($form)->save();
+        return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー新規登録しました。');
     }
 
     public function edit(Request $request)
     {
-        $user =User::find($request->id);
-        return view('user.edit', ['form'=> $user]);
+        $user = User::find($request->id);
+        return view('user.edit', ['form' => $user]);
     }
 
     public function update(Request $request)
@@ -41,6 +41,13 @@ class UserController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $user->fill($form)->save();
-	return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー更新登録しました。');
+        return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー更新登録しました。');
+    }
+
+    public function delete($id)
+    {
+        User::find($id)->delete(); // softDelete
+
+        return redirect()->to('users');
     }
 }
