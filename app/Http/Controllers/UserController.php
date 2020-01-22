@@ -12,6 +12,7 @@ class UserController extends Controller
         $users = User::all();
         return view('user.index', ['users' => $users]);
     }
+
     public function add(Request $request)
     {
         return view('user.add');
@@ -25,7 +26,10 @@ class UserController extends Controller
 	    unset($form['_token']);
 	    $user->timestamps = false;
 	    $user->fill($form)->save();
-	    return redirect('/users');
+        if ($user->create()) {
+            return redirect('user.edit')->with('message', 'ユーザー新規登録しました。');
+        }
+            return redirect('user.index')->with('users', 'ユーザー新規登録できませんでした。');
     }
 
     public function edit(Request $request)
