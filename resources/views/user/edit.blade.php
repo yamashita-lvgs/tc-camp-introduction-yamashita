@@ -18,12 +18,13 @@
 @endif
 <table>
     <form action="/users/edit" method="post">
-        {{ csrf_field() }}
-        <tr><th>name: </th><td><input type="hidden" name="name" value="{{$form->id}}"></td></tr>
-        <tr><th>mail: </th><td><input type="hidden" name="email" value="{{$form->name}}"></td></tr>
+	{{ csrf_field() }}
+	<input type="hidden" name="id" value="{{$form->id}}">
+	<tr><th>name: </th><td><input type="text" name="name" value="{{$form->name}}"></td></tr>
+        <tr><th>mail: </th><td><input type="text" name="email" value="{{$form->email}}"></td></tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </form>
 </table>
-
+{{$form->name}}
 </body>
 </html>
