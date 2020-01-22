@@ -44,10 +44,10 @@ class UserController extends Controller
         return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー更新登録しました。');
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        User::find($id)->delete(); // softDelete
-
-        return redirect()->to('users');
+        $user = User::find($request->id);
+	$user->delete();
+        return redirect()->to("/users");
     }
 }
