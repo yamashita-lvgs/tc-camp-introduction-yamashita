@@ -7,6 +7,12 @@
 <body>
 <h1>User/Edit</h1>
 <h1>ユーザー編集</h1>
+
+<!--新規と更新登録からリダイレクトされた時のメッセージ表示--!>
+@if (Session::has('message'))
+    <p>{{ session('message') }}</p>
+@endif
+
 @if (count($errors) > 0)
     <div>
         <ul>

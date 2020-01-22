@@ -23,13 +23,9 @@ class UserController extends Controller
         $this->validate($request, User::$rules);
         $user = new User;
         $form = $request->all();
-	    unset($form['_token']);
-	    $user->timestamps = false;
-	    $user->fill($form)->save();
-        if ($user->create()) {
-            return redirect('user.edit')->with('message', 'ユーザー新規登録しました。');
-        }
-            return redirect('user.index')->with('users', 'ユーザー新規登録できませんでした。');
+	unset($form['_token']);
+	$user->fill($form)->save();
+	return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー新規登録しました。');
     }
 
     public function edit(Request $request)
@@ -45,6 +41,6 @@ class UserController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $user->fill($form)->save();
-        return redirect('/users');
+	return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー更新登録しました。');
     }
 }
