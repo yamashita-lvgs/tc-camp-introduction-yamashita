@@ -30,12 +30,12 @@ class UserController extends Controller
  */
     public function create(Request $request)
     {
-	User::insert([
-        'name' => $request->name,
-        'email' => $request->email,
-        'created_at' => now(),
-        'updated_at' => now()
-    ]);
-	return redirect('/users');
+	    User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+	    return redirect('/users');
     }
 }
