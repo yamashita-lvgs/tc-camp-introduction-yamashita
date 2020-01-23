@@ -12,6 +12,7 @@ class UserController extends Controller
         $users = User::all();
         return view('user.index', ['users' => $users]);
     }
+
     public function add(Request $request)
     {
         return view('user.add');
@@ -21,9 +22,9 @@ class UserController extends Controller
     {
         $user = new User;
         $form = $request->all();
-	unset($form['_token']);
-	$user->timestamps = false;
-	$user->fill($form)->save();
+	    unset($form['_token']);
+	    $user->timestamps = false;
+	    $user->fill($form)->save();
         return redirect('/users');
     }
 }
