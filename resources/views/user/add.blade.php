@@ -9,7 +9,7 @@
 <h1>ユーザー登録</h1>
 
 <table>
-    <form action="/users/add" method="post">
+    <form method="post">
         {{ csrf_field() }}
         <tr><th>name: </th><td><input type="text" name="name" value="{{old('name')}}"></td></tr>
         <tr><th>mail: </th><td><input type="text" name="email" value="{{old('email')}}"></td></tr>

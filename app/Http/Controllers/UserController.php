@@ -16,15 +16,16 @@ class UserController extends Controller
     public function add(Request $request)
     {
         return view('user.add');
-    }
+    } 
 
     public function create(Request $request)
-    {
-        $user = new User;
-        $form = $request->all();
-	    unset($form['_token']);
-	    $user->timestamps = false;
-	    $user->fill($form)->save();
-        return redirect('/users');
+    {  
+	User::insert([
+	    'name' => $request->name,
+	    'email' => $request->email,
+   	    'created_at' => now(),
+   	    'updated_at' => now()
+    	]);    
+	return redirect('/users');
     }
 }
