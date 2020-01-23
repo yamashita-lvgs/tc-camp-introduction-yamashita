@@ -20,15 +20,15 @@ class UserController extends Controller
 /**
  * ユーザー新規登録（情報入力）
  */
-    public function add(Request $request)
+    public function create(Request $request)
     {
-        return view('user.add');
+        return view('user.create');
     }
 
 /**
  * ユーザー新規登録（情報登録処理）
  */
-    public function create(Request $request)
+    public function showCreateScreen(Request $request)
     {
 	    User::insert([
             'name' => $request->name,

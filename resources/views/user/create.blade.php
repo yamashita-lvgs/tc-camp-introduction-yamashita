@@ -2,10 +2,10 @@
 
 <html lang="ja">
     <head>
-    <title>Index</title>
+    <title>Users/Create</title>
     </head>
     <body>
-        <h1>User/Add</h1>
+        <h1>Users/Create</h1>
         <h1>ユーザー登録</h1>
         <table>
             <form method="post">
