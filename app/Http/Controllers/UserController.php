@@ -32,7 +32,7 @@ class UserController extends Controller
     {
 	User::insert([
 	    'name' => $request->name,
-	    'email' => $request->email,
+        'email' => $request->email,
         'created_at' => now(),
         'updated_at' => now()
     	]);
