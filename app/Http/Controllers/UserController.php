@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function showCreateScreen(Request $request)
     {
-	    User::insert([
+	User::insert([
             'name' => $request->name,
             'email' => $request->email,
             'created_at' => now(),
