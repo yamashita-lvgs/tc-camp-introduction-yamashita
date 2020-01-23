@@ -16,6 +16,7 @@ class UserController extends Controller
         $users = User::all();
         return view('user.index', ['users' => $users]);
     }
+
 /**
  * ユーザー新規登録（情報入力）
  */
