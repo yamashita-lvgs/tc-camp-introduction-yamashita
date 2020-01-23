@@ -35,7 +35,7 @@ class UserController extends Controller
         'email' => $request->email,
         'created_at' => now(),
         'updated_at' => now()
-    	]);
+    ]);
 	return redirect('/users');
     }
 }
