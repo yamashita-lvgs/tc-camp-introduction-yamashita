@@ -23,19 +23,19 @@ class UserController extends Controller
     public function add(Request $request)
     {
         return view('user.add');
-    } 
+    }
 
 /**
  * ユーザー新規登録（情報登録処理）
- */ 
+ */
     public function create(Request $request)
-    {  
+    {
 	User::insert([
 	    'name' => $request->name,
 	    'email' => $request->email,
-   	    'created_at' => now(),
-   	    'updated_at' => now()
-    	]);    
+        'created_at' => now(),
+        'updated_at' => now()
+    	]);
 	return redirect('/users');
     }
 }
