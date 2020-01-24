@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
- * ユーザーコントローラーの説明
+ * ユーザーに関するコントローラークラス
  */
 class UserController extends Controller
 {
     /**
-     * 一覧画面
+     * 一覧画面表示
      * @param  $users ユーザーに関する情報
      * @return View   ユーザー一覧画面
      */
@@ -23,8 +23,8 @@ class UserController extends Controller
     }
 
     /**
-     * 新規登録画面
-     * @param  $request  入力するユーザーの情報
+     * 新規登録画面表示
+     * @param  $request  リクエスト情報
      * @return View   ユーザー新規登録画面
      */
     public function showCreateScreen(Request $request): View
