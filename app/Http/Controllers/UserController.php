@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Middleware\UserValidate;
+use App\Http\Requests\UserRequest;
 
 /**
  * ユーザー画面に関するクラス
@@ -31,7 +32,7 @@ class UserController extends Controller
     /**
      * ユーザー新規登録（情報登録処理）
      */
-    public function create(Request $request)
+    public function create(UserRequest $request)
     {
         User::insert([
             'name' => $request->name,

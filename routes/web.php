@@ -17,6 +17,5 @@ Route::get('/', function () {
 
 Route::get('users', 'UserController@index');
 Route::get('users/create', 'UserController@showCreateScreen');
-Route::post('users/create', 'UserController@create')->middleware(App\HTTP\Middleware::class);
-
+Route::post('users/create', 'UserController@create');
 
