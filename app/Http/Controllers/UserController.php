@@ -2,37 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use illuminate\Http\Request;
-use App\Models\User;
-use App\Http\Middleware\UserValidate;
 use App\Http\Requests\UserRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 /**
- * ユーザー画面に関するクラス
+ * ユーザーに関するコントローラークラス
  */
 class UserController extends Controller
 {
     /**
-     * ユーザー一覧画面
+     * 一覧画面表示
+     * @param  $users ユーザーに関する情報
+     * @return View   ユーザー一覧画面
      */
-    public function index()
+    public function index(): View
     {
-        $users = User::all();
+	$users = User::all();
         return view('user.index', ['users' => $users]);
     }
 
     /**
-     * ユーザー新規登録（情報入力）
+     * 新規登録画面表示
+     * @param  $request  リクエスト情報
+     * @return View   ユーザー新規登録画面
      */
-    public function showCreateScreen(Request $request)
+    public function showCreateScreen(Request $request): View
     {
         return view('user.create');
     }
 
     /**
-     * ユーザー新規登録（情報登録処理）
+     * ユーザー情報登録処理
+     * @param  $request  入力されたユーザー情報
+     * @return View   ユーザー一覧画面
      */
-    public function create(UserRequest $request)
+    public function create(Request $request): RedirectResponse
     {
         User::insert([
             'name' => $request->name,
@@ -43,3 +49,4 @@ class UserController extends Controller
         return redirect('/users');
     }
 }
+
