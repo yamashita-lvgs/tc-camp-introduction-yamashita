@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
- * @subpackage users
- * @package tc-ademin
- * @author yamashita-lgvs
+ * ユーザーコントローラーの説明
  */
 class UserController extends Controller
 {
     /**
-     * ユーザー一覧画面
+     * 一覧画面
+     * @param  $users ユーザーに関する情報
+     * @return View   ユーザー一覧画面
      */
     public function index(): View
     {
@@ -23,7 +23,9 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザー新規登録（情報入力）
+     * 新規登録画面
+     * @param  $request  入力するユーザーの情報
+     * @return View   ユーザー新規登録画面
      */
     public function showCreateScreen(Request $request): View
     {
@@ -31,7 +33,9 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザー新規登録（情報登録処理）
+     * ユーザー情報登録処理
+     * @param  $request  入力されたユーザー情報
+     * @return View   ユーザー一覧画面
      */
     public function create(Request $request): RedirectResponse
     {
