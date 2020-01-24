@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -35,8 +35,8 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザー情報登録処理
-     * @param  $request  入力されたユーザー情報
+     * 新規登録処理実行
+     * @param  $request  ユーザー情報
      * @return View   ユーザー一覧画面
      */
     public function create(UserRequest $request): RedirectResponse
