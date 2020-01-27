@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index(): View
     {
-	$users = User::all();
+        $users = User::all();
         return view('user.index', ['users' => $users]);
     }
 
@@ -49,8 +49,8 @@ class UserController extends Controller
                 'mail' => $request->mail,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]);
-	});
+            ])
+        });
         return redirect('/users');
     }
 
@@ -74,7 +74,7 @@ class UserController extends Controller
     public function edit(UserRequest $request): RedirectResponse
     {
         DB::transaction(function () use ($request) 
-	{
+        {
             $user = User::find($request->id);
             User::insert([
                 'name' => $request->name,
