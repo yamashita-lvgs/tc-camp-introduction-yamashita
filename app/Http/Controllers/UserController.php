@@ -42,15 +42,9 @@ class UserController extends Controller
      */
     public function create(UserRequest $request): RedirectResponse
     {
-        DB::transaction(function () use ($request)
-        {
-            User::insert([
-                'name' => $request->name,
-                'mail' => $request->mail,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ])
-        });
+        DB::transaction(function () use ($request){
+            DB::table('users')->insert($request->validated());
+	});
         return redirect('/users');
     }
 
@@ -73,15 +67,9 @@ class UserController extends Controller
      */
     public function edit(UserRequest $request): RedirectResponse
     {
-        DB::transaction(function () use ($request) 
-        {
+        DB::transaction(function () use ($request) {
             $user = User::find($request->id);
-            User::insert([
-                'name' => $request->name,
-                'mail' => $request->mail,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            DB::table('users')->insert($request->validated());
         });
         return redirect('/users');
     }
