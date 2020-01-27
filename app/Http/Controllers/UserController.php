@@ -42,15 +42,15 @@ class UserController extends Controller
      */
     public function create(UserRequest $request): RedirectResponse
     {
-        DB::transaction(function () use ($request) 
+        DB::transaction(function () use ($request)
         {
-            User::insert(
+            User::insert([
                 'name' => $request->name,
                 'mail' => $request->mail,
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ]);
-        });
+	});
         return redirect('/users');
     }
 
@@ -75,14 +75,15 @@ class UserController extends Controller
     {
         DB::transaction(function () use ($request) 
 	{
-            User::find($request->id);
+            $user = User::find($request->id);
             User::insert([
                 'name' => $request->name,
                 'mail' => $request->mail,
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ]);
-　　　　　});
+        });
         return redirect('/users');
     }
 }
+
