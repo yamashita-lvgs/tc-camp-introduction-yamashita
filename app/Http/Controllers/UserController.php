@@ -36,8 +36,8 @@ class UserController extends Controller
 
     /**
      * 新規登録処理実行
-     * @param  $request  ユーザー情報
-     * @return View   ユーザー一覧画面
+     * @param  $request  リクエスト情報
+     * @return View   ユーザー一覧画面リダイレクト
      */
     public function create(UserRequest $request): RedirectResponse
     {

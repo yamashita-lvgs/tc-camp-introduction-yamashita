@@ -19,9 +19,9 @@
             </tr>
                  <th>mail: </th>
                  <td><input type="text" name="email" value="{{old('email')}}"></td>
-	             @if ($errors->has('email'))
+                @if ($errors->has('email'))
                      <td>{{$errors->first('email')}}</td>
-                 @endif
+                @endif
             </tr>
             <tr><th></th><td><input type="submit" value="send"></td></tr>
             </form>
