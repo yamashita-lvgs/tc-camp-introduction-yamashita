@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -38,7 +40,7 @@ class UserController extends Controller
      * @param  $request リクエスト情報
      * @return View     ユーザー一覧画面リダイレクト
      */
-    public function create(Request $request): RedirectResponse
+    public function create(UserRequest $request): RedirectResponse
     {
         User::insert([
             'name' => $request->name,
@@ -67,15 +69,10 @@ class UserController extends Controller
      * @param  $user    ユーザーに関する情報
      * @return View     ユーザー一覧画面
      */
-    public function edit(Request $request): RedirectResponse
+    public function edit(UserRequest $request): RedirectResponse
     {
         $user = User::find($request->id);
-        User::insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'created_at' => now(),
-            'updated_at' => now()
-         ]);
+        DB::insert('insert into users (name, email, created_at, updated_at) values (?, ?, ?, ?)', [$request->name, $request->email, now(), now()]);
         return redirect('/users');
     }
 }
