@@ -69,15 +69,13 @@ class UserController extends Controller
     /**
      * 編集登録処理実行
      * @param  $request リクエスト情報
-     * @param  $user    ユーザーに関する情報
      * @return View     ユーザー一覧画面
      */
     public function edit(UserRequest $request): RedirectResponse
     {
-        $user = User::find($request->id);
         DB::transaction(function () use ($request) 
 	{
-            $user = User::find($request->id);
+            User::find($request->id);
             User::insert([
                 'name' => $request->name,
                 'mail' => $request->mail,
