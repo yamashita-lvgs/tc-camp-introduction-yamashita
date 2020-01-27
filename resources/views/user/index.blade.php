@@ -18,7 +18,7 @@
             <tr>
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
+                <td>{{$user->mail}}</td>
                 <td><a href="users/edit/{{$user->id}}">編集</a></td>
             </tr>
             @endforeach

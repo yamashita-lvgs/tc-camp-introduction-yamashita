@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name'  => 'required|between:2,20',
-            'email' => 'required|between:5,50',
+            'mail' => 'required|between:5,50',
         ];
     }
 }
