@@ -43,9 +43,9 @@ class UserController extends Controller
     public function create(UserRequest $request): RedirectResponse
     {
         DB::transaction(function () use ($request) {
-	    User::insert([	
+	    User::insert([
 	    'name' => $request->name,
-            'email' => $request->email,
+            'mail' => $request->mail,
             'created_at' => now(),
             'updated_at' => now()
             ]);
@@ -77,7 +77,7 @@ class UserController extends Controller
         DB::transaction(function () use ($request) {
             User::insert([
             'name' => $request->name,
-            'email' => $request->email,
+            'mail' => $request->mail,
             'created_at' => now(),
             'updated_at' => now()
             ]);

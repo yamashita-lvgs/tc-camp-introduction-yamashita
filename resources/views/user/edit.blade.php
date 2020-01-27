@@ -19,9 +19,9 @@
                 <tr>
                 </tr>
                     <th>mail: </th>
-                    <td><input type="text" name="email" value="{{$form->email}}"></td>
-                    @if ($errors->has('email'))
-                        <td>{{$errors->first('email')}}</td>
+                    <td><input type="text" name="mail" value="{{$form->mail}}"></td>
+                    @if ($errors->has('mail'))
+                        <td>{{$errors->first('mail')}}</td>
                     @endif
                 </tr>
                 <tr><th></th><td><input type="submit" value="send"></td></tr>
