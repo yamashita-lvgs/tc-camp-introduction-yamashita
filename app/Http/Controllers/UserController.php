@@ -21,7 +21,7 @@ class UserController extends Controller
 	$users = User::all();
         return view('user.index', ['users' => $users]);
     }
-  
+
     /**
      * 新規登録画面表示
      * @param  $request  リクエスト情報
@@ -45,14 +45,27 @@ class UserController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-      
-    public function edit(Request $request)
+    }
+
+    /**
+     * ユーザー情報編集画面表示
+     * @param  $request  登録されていたユーザー情報
+     * @param  $user  ユーザー情報
+     * @return View   ユーザー編集画面
+     */
+    public function showEditScreen(Request $request): View
     {
         $user =User::find($request->id);
         return view('user.edit', ['form'=> $user]);
     }
 
-    public function update(Request $request)
+    /**
+     * ユーザー情報編集画面表示
+     * @param  $request  登録されていたユーザー情報
+     * @param  $this
+     * @return View   ユーザー一覧画面
+     */
+    public function edit(Request $request): RedirectResponse
     {
         $this->validate($request, User::$rules);
         $user = User::find($request->id);
