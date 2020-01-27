@@ -45,6 +45,7 @@ class UserController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        return redirect('/users');
     }
 
     /**
