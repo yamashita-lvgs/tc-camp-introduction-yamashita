@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -33,11 +35,11 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザー情報登録処理
-     * @param  $request  入力されたユーザー情報
-     * @return View   ユーザー一覧画面
+     * 新規登録処理実行
+     * @param  $request  リクエスト情報
+     * @return View   ユーザー一覧画面リダイレクト
      */
-    public function create(Request $request): RedirectResponse
+    public function create(UserRequest $request): RedirectResponse
     {
         User::insert([
             'name' => $request->name,
