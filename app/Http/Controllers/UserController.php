@@ -76,7 +76,8 @@ class UserController extends Controller
     {
         $user = User::find($request->id);
         DB::transaction(function () use ($request) 
-        {
+	{
+            $user = User::find($request->id);
             User::insert([
                 'name' => $request->name,
                 'mail' => $request->mail,
