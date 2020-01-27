@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 /**
@@ -24,8 +27,8 @@ class UserController extends Controller
 
     /**
      * 新規登録画面表示
-     * @param  $request  リクエスト情報
-     * @return View   ユーザー新規登録画面
+     * @param  $request リクエスト情報
+     * @return View     ユーザー新規登録画面
      */
     public function showCreateScreen(Request $request): View
     {
@@ -33,26 +36,28 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザー情報登録処理
-     * @param  $request  入力されたユーザー情報
-     * @return View   ユーザー一覧画面
+     * 新規登録処理実行
+     * @param  $request リクエスト情報
+     * @return View     ユーザー一覧画面リダイレクト
      */
-    public function create(Request $request): RedirectResponse
+    public function create(UserRequest $request): RedirectResponse
     {
-        User::insert([
-            'name' => $request->name,
+        DB::transaction(function () use ($request) {
+	    User::insert([	
+	    'name' => $request->name,
             'email' => $request->email,
             'created_at' => now(),
             'updated_at' => now()
-        ]);
+            ]);
+	});
         return redirect('/users');
     }
 
     /**
-     * ユーザー情報編集画面表示
-     * @param  $request  登録されていたユーザー情報
-     * @param  $user  ユーザー情報
-     * @return View   ユーザー編集画面
+     * 編集画面表示
+     * @param  $request リクエスト情報
+     * @param  $user    ユーザーに関する情報
+     * @return View     ユーザー編集画面
      */
     public function showEditScreen(Request $request): View
     {
@@ -61,19 +66,22 @@ class UserController extends Controller
     }
 
     /**
-     * ユーザー情報編集画面表示
-     * @param  $request  登録されていたユーザー情報
-     * @param  $this
-     * @return View   ユーザー一覧画面
+     * 編集登録処理実行
+     * @param  $request リクエスト情報
+     * @param  $user    ユーザーに関する情報
+     * @return View     ユーザー一覧画面
      */
-    public function edit(Request $request): RedirectResponse
+    public function edit(UserRequest $request): RedirectResponse
     {
-        $this->validate($request, User::$rules);
         $user = User::find($request->id);
-        $form = $request->all();
-        unset($form['_token']);
-        $user->fill($form)->save();
+        DB::transaction(function () use ($request) {
+            User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+	});
         return redirect('/users');
     }
 }
-aaaaaa
