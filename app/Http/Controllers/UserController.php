@@ -44,7 +44,7 @@ class UserController extends Controller
     {
         DB::transaction(function () use ($request){
             DB::table('users')->insert($request->validated());
-	});
+        });
         return redirect('/users');
     }
 
