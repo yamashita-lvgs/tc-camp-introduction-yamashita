@@ -10,7 +10,7 @@
             <form method="post">
                 {{ csrf_field() }}
                <tr>
-		    <input type="hidden" name="id" value="{{$form->id}}">
+                    <input type="hidden" name="id" value="{{$form->id}}">
                     <th>name: </th>
                     <td><input type="text" name="name" value="{{$form->name}}"></td>
                     @if ($errors->has('name'))
