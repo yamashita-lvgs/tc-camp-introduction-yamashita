@@ -37,13 +37,15 @@ class UserController extends Controller
 
     /**
      * 新規登録処理実行
-     * @param  $request リクエスト情報
-     * @return View     ユーザー一覧画面リダイレクト
+     * @param  $request   リクエスト情報
+     * @param  $validated バリデーションの確認した値
+     * @return View       ユーザー一覧画面リダイレクト
      */
     public function create(UserRequest $request): RedirectResponse
     {
         DB::transaction(function () use ($request){
-            DB::table('users')->insert($request->validated());
+            $validated = $request->validated();
+            User::create($validated);
         });
         return redirect('/users');
     }
@@ -62,14 +64,16 @@ class UserController extends Controller
 
     /**
      * 編集登録処理実行
-     * @param  $request リクエスト情報
-     * @return View     ユーザー一覧画面
+     * @param  $request   リクエスト情報
+     * @param  $validated バリデーションの確認した値
+     * @return View       ユーザー一覧画面
      */
     public function edit(UserRequest $request): RedirectResponse
     {
-        DB::transaction(function () use ($request) {
+	DB::transaction(function () use ($request){
             $user = User::find($request->id);
-            DB::table('users')->insert($request->validated());
+            $validated = $request->validated();
+            $user->fill($validated)->save();
         });
         return redirect('/users');
     }
