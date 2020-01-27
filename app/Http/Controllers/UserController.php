@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 /**
@@ -45,10 +45,10 @@ class UserController extends Controller
         DB::transaction(function () use ($request) 
         {
             User::insert(
-            'name' => $request->name,
-            'mail' => $request->mail,
-            'created_at' => now(),
-            'updated_at' => now()
+            　　　　'name' => $request->name,
+         　　　　   'mail' => $request->mail,
+     　　　　       'created_at' => now(),
+   　　　　　       'updated_at' => now()
             ]);
         });
         return redirect('/users');
@@ -78,12 +78,12 @@ class UserController extends Controller
         DB::transaction(function () use ($request) 
         {
             User::insert([
-            'name' => $request->name,
-            'mail' => $request->mail,
-            'created_at' => now(),
-            'updated_at' => now()
+            　　　　'name' => $request->name,
+            　　　　'mail' => $request->mail,
+            　　　　'created_at' => now(),
+            　　　　'updated_at' => now()
             ]);
-	});
+　　　　　});
         return redirect('/users');
     }
 }
