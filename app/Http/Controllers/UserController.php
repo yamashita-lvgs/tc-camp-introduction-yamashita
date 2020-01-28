@@ -58,8 +58,8 @@ class UserController extends Controller
      */
     public function showEditScreen(Request $request): View
     {
-	$user =User::find($request->id);    
-	return view('user.edit', ['user'=> $user]);
+        $user =User::find($request->id);    
+        return view('user.edit', ['user'=> $user]);
     }
 
     /**
