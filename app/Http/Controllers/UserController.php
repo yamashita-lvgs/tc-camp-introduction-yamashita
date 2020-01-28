@@ -78,9 +78,9 @@ class UserController extends Controller
         });
         return redirect("/users/{$userId}/edit")->with('message', 'ユーザー更新登録しました。');
     }
+
     /**
      * 論理削除処理実行
-     * @param  int $userId      ユーザーID
      * @param  Request $request リクエスト情報
      * @return RedirectResponse ユーザー編集画面リダイレクト
      */
@@ -88,7 +88,7 @@ class UserController extends Controller
     {
         DB::transaction(function () use ($request)
         {
-            User::find($request->id)->softDeletes();
+            User::find($request->id)->delete();
         });
         return redirect("/users");
     }
