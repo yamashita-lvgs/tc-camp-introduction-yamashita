@@ -26,7 +26,7 @@
                 <td>{{$user->mail}}</td>
                 <td><a href="users/{{$user->id}}/edit">編集</a></td>
                 <td><a href="users/{{$user->id}}/delete">論理削除</a></td>
-                <td><a href="users/{{$user->id}}/physical_delete">物理削除</a></td>
+                <td><a href="users/{{$user->id}}/physicalDelete">物理削除</a></td>
             </tr>
             @endforeach
         </table>
