@@ -91,6 +91,7 @@ class UserController extends Controller
             $user = User::find($userId)->delete();
         });
         return redirect("/users");
+    }
 
     /**
      * 論理削除処理実行
