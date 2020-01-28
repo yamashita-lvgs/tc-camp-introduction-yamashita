@@ -1,12 +1,14 @@
 <!doctype html>
 
 <html lang="ja">
-<<<<<<< HEAD
     <head>
         <title>Users/Edit</title>
     </head>
     <body>
-        <h1>ユーザー編集</h1>
+	<h1>ユーザー編集</h1>
+@if (Session::has('message'))
+    <p>{{ session('message') }}</p>
+@endif
         <table>
             <form method="post">
                 {{ csrf_field() }}
