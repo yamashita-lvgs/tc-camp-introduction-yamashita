@@ -2,58 +2,108 @@
 
 namespace App\Http\Controllers;
 
-use illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
+/**
+ * ユーザーに関するコントローラークラス
+ * @package App\Http\Controllersr
+ */
 class UserController extends Controller
 {
-    public function index()
+    /**
+     * 一覧画面表示
+     * @return View ユーザー一覧画面
+     */
+    public function index(): View
     {
         $users = User::all();
         return view('user.index', ['users' => $users]);
     }
 
-    public function add(Request $request)
+    /**
+     * 新規登録画面表示
+     * @return View             ユーザー新規登録画面
+     */
+    public function showCreateScreen(): View
     {
-        return view('user.add');
+        return view('user.create');
     }
 
-    public function create(Request $request)
+    /**
+     * 新規登録処理実行
+     * @param  UserRequest $request リクエスト情報
+     * @return RedirectResponse     ユーザー編集画面リダイレクト
+     */
+    public function create(UserRequest $request): RedirectResponse
     {
-        $this->validate($request, User::$rules);
-        $user = new User;
-        $form = $request->all();
-        unset($form['_token']);
-        $user->fill($form)->save();
-        return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー新規登録しました。');
+        $validated = $request->validated();
+        $user =DB::transaction(function () use ($validated)
+        {
+            $createUser = User::create($validated);
+            return $createUser;
+        });
+        return redirect("/users/{$user->id}/edit")->with('message', 'ユーザー新規登録しました。');
     }
 
-    public function edit(Request $request)
+    /**
+     * 編集画面表示
+     * @param  UserRequest $request リクエスト情報
+     * @return View                 ユーザー編集画面
+     */
+    public function showEditScreen(Request $request): View
     {
-        $user = User::find($request->id);
-        return view('user.edit', ['form' => $user]);
+        $user =User::find($request->id);
+        return view('user.edit', ['user'=> $user]);
     }
 
-    public function update(Request $request)
+    /**
+     * 編集登録処理実行
+     * @param  int $userId          ユーザーID
+     * @param  UserRequest $request リクエスト情報
+     * @throws ValidationException  バリデーションエラーが発生した場合
+     * @return RedirectResponse     ユーザー編集画面リダイレクト
+     */
+    public function edit(UserRequest $request, int $userId): RedirectResponse
     {
-        $this->validate($request, User::$rules);
-        $user = User::find($request->id);
-        $form = $request->all();
-        unset($form['_token']);
-        $user->fill($form)->save();
-        return redirect()->to("/users/edit/{$user->id}")->with('message', 'ユーザー更新登録しました。');
+        $validated = $request->validated();
+        DB::transaction(function () use ($validated, $userId)
+        {
+            $user = User::find($userId)->fill($validated)->save();
+        });
+        return redirect("/users/{$userId}/edit")->with('message', 'ユーザー更新登録しました。');
     }
 
-    public function delete(Request $request)
+    /**
+     * 論理削除処理実行
+     * @param  int $userId      ユーザーID
+     * @return RedirectResponse ユーザー編集画面リダイレクト
+     */
+    public function delete(int $userId)
     {
-        $user = User::find($request->id);
-        $user->delete();
-        return redirect()->to("/users")->with('message', 'ユーザー論理削除しました。');
-    }
+        DB::transaction(function () use ($userId)
+        {
+            $user = User::find($userId)->delete();
+        });
+        return redirect("/users");
 
-    public function physical_delete(Request $request)
+    /**
+     * 論理削除処理実行
+     * @param  int $userId      ユーザーID
+     * @return RedirectResponse ユーザー編集画面リダイレクト
+     */
+    public function physical_delete(int $userId)
     {
-        User::find($request->id)->forceDelete();
-	return redirect()->to('/users')->with('message', 'ユーザー物理削除しました。');
+        DB::transaction(function () use ($userId)
+        {
+            $user = User::find($userId)->forceDelete();
+        });
+        return redirect("/users");
     }
 }
+
