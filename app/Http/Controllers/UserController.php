@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -77,13 +78,19 @@ class UserController extends Controller
         });
         return redirect("/users/{$userId}/edit")->with('message', 'ユーザー更新登録しました。');
     }
-
+    /**
+     * 論理削除処理実行
+     * @param  int $userId      ユーザーID
+     * @param  Request $request リクエスト情報
+     * @return RedirectResponse ユーザー編集画面リダイレクト
+     */
     public function delete(Request $request)
     {
-        $user = User::find($request->id);
-        $user->delete();
+        DB::transaction(function () use ($request)
+        {
+            User::find($request->id)->softDeletes();
+        });
         return redirect("/users");
-
     }
 }
 
