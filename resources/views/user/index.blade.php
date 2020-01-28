@@ -17,7 +17,6 @@
                 <th>mail</th>
                 <th></th>
                 <th></th>
-                <th></th>
             </tr>
             @foreach($users as $user)
             <tr>
