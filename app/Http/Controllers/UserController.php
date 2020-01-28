@@ -11,7 +11,7 @@ use Illuminate\View\View;
 
 /**
  * ユーザーに関するコントローラークラス
- * @package Controller
+ * @package App\Http\Controllersr
  */
 class UserController extends Controller
 {
@@ -27,7 +27,6 @@ class UserController extends Controller
 
     /**
      * 新規登録画面表示
-     * @param  Request $request リクエスト情報
      * @return View             ユーザー新規登録画面
      */
     public function showCreateScreen(Request $request): View
@@ -64,8 +63,8 @@ class UserController extends Controller
 
     /**
      * 編集登録処理実行
-     * @param  UserRequest $request リクエスト情報
      * @param  int $userId          ユーザーID
+     * @param  UserRequest $request リクエスト情報
      * @throws ValidationException  バリデーションエラーが発生した場合
      * @return RedirectResponse     ユーザー編集画面リダイレクト
      */
