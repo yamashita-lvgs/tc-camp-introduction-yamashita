@@ -29,7 +29,7 @@ class UserController extends Controller
      * 新規登録画面表示
      * @return View             ユーザー新規登録画面
      */
-    public function showCreateScreen(Request $request): View
+    public function showCreateScreen(): View
     {
         return view('user.create');
     }
