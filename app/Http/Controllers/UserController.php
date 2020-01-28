@@ -43,13 +43,13 @@ class UserController extends Controller
      */
     public function create(UserRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
-        DB::transaction(function () use ($request){
-            User::create($validated);
-        });
-        return redirect()->to("/users/edit/{$request->id}")->with('message', 'ユーザー新規登録しました。');
+	    $validated = $request->validated();
+        $user =DB::transaction(function () use ($validated){
+		$createUser = User::create($validated);
+	return $createUser;
+	});
+        return redirect()->to("/users/{$user->id}/edit}")->with('message', 'ユーザー新規登録しました。');
     }
-
     /**
      * 編集画面表示
      * @param  $request リクエスト情報
@@ -71,11 +71,12 @@ class UserController extends Controller
     public function edit(UserRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        DB::transaction(function () use ($request){
+	DB::transaction(function () use ($request, $validated)
+	{
             $user = User::find($request->id);
             $user->fill($validated)->save();
         });
-        return redirect()->to("/users/edit/{$request->id}")->with('message', 'ユーザー更新登録しました。');
+        return redirect()->to("/users/{$request->id}/edit/")->with('message', 'ユーザー更新登録しました。');
     }
 }
 
