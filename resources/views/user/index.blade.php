@@ -22,7 +22,7 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->mail}}</td>
-                <td><a href="users/edit/{{$user->id}}">編集</a></td>
+                <td><a href="users/{{$user->id}}/edit">編集</a></td>
             </tr>
             @endforeach
         </table>

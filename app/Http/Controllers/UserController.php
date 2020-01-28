@@ -38,7 +38,7 @@ class UserController extends Controller
     /**
      * 新規登録処理実行
      * @param  UserRequest $request リクエスト情報
-     * @return Redirect             ユーザー編集画面リダイレクト
+     * @return RedirectResponse     ユーザー編集画面リダイレクト
      */
     public function create(UserRequest $request): RedirectResponse
     {
@@ -48,7 +48,7 @@ class UserController extends Controller
             $createUser = User::create($validated);
             return $createUser;
         });
-        return redirect('/users/{$user->id}/edit}')->with('message', 'ユーザー新規登録しました。');
+        return redirect("/users/{$user->id}/edit")->with('message', 'ユーザー新規登録しました。');
     }
 
     /**
@@ -58,25 +58,25 @@ class UserController extends Controller
      */
     public function showEditScreen(Request $request): View
     {
-        $user =User::find($request->id);
-        return view('user.edit', ['user'=> $user]);
+	$user =User::find($request->id);    
+	return view('user.edit', ['user'=> $user]);
     }
 
     /**
      * 編集登録処理実行
-     * @param  UserRequest $request   リクエスト情報
-     * @param  $validated バリデーションの確認した値
-     * @return Redirect       ユーザー編集画面リダイレクト
+     * @param  UserRequest $request リクエスト情報
+     * @param  int $userId          ユーザーID
+     * @throws ValidationException  バリデーションエラーが発生した場合
+     * @return RedirectResponse     ユーザー編集画面リダイレクト
      */
-    public function edit(UserRequest $request): RedirectResponse
+    public function edit(UserRequest $request, int $userId): RedirectResponse
     {
         $validated = $request->validated();
-        DB::transaction(function () use ($request, $validated)
+        DB::transaction(function () use ($validated, $userId)
         {
-            $user = User::find($request->id);
-            $user->fill($validated)->save();
+            $user = User::find($userId)->fill($validated)->save();
         });
-        return redirect('/users/{$request->id}/edit/')->with('message', 'ユーザー更新登録しました。');
+        return redirect("/users/{$userId}/edit")->with('message', 'ユーザー更新登録しました。');
     }
 }
 
