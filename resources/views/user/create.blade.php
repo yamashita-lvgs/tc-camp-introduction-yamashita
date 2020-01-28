@@ -1,27 +1,24 @@
 <!doctype html>
+
 <html lang="ja">
     <head>
-        <title>Users/Edit</title>
+        <title>Users/Create</title>
     </head>
     <body>
-        <h1>ユーザー編集</h1>
-        @if (Session::has('message'))
-            <p>{{ session('message') }}</p>
-        @endif
+        <h1>ユーザー登録</h1>
         <table>
             <form method="post">
                 {{ csrf_field() }}
-               <tr>
-                    <input type="hidden" name="id" value="{{$user->id}}">
+                <tr>
                     <th>name: </th>
-                    <td><input type="text" name="name" value="{{$user->name}}"></td>
+                    <td><input type="text" name="name" value="{{old('name')}}"></td>
                     @if ($errors->has('name'))
                         <td>{{$errors->first('name')}}</td>
                     @endif
                 <tr>
                 </tr>
                     <th>mail: </th>
-                    <td><input type="text" name="mail" value="{{$user->mail}}"></td>
+                    <td><input type="text" name="mail" value="{{old('mail')}}"></td>
                     @if ($errors->has('mail'))
                         <td>{{$errors->first('mail')}}</td>
                     @endif
@@ -31,3 +28,4 @@
         </table>
     </body>
 </html>
+
