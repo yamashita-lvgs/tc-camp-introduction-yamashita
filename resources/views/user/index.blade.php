@@ -17,6 +17,7 @@
                 <th>mail</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
             @foreach($users as $user)
             <tr>
@@ -25,6 +26,7 @@
                 <td>{{$user->mail}}</td>
                 <td><a href="users/{{$user->id}}/edit">編集</a></td>
                 <td><a href="users/{{$user->id}}/delete">論理削除</a></td>
+                <td><a href="users/{{$user->id}}/physicalDelete">物理削除</a></td>
             </tr>
             @endforeach
         </table>
