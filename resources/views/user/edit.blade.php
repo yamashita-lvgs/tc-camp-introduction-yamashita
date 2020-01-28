@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="ja">
+<<<<<<< HEAD
     <head>
         <title>Users/Edit</title>
     </head>
