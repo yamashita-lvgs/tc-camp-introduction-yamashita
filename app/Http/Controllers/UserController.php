@@ -98,7 +98,7 @@ class UserController extends Controller
      * @param  int $userId      ユーザーID
      * @return RedirectResponse ユーザー一覧画面リダイレクト
      */
-    public function physical_delete(int $userId)
+    public function physicalDelete(int $userId)
     {
         DB::transaction(function () use ($userId)
         {
